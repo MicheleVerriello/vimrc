@@ -1,15 +1,15 @@
-" === Cursor shape ===
-let &t_SI = "\<Esc>[6 q"   " Insert mode: steady bar
+" Cursor shape
+let &t_SI = "\<Esc>[4 q"   " Insert mode: steady bar
 let &t_EI = "\<Esc>[2 q"   " Normal mode: steady block
 
-" === Plugins ===
+" Plugins
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'          " File explorer
 Plug 'vim-airline/vim-airline'     " Status bar
 Plug 'vim-airline/vim-airline-themes'
 
-" === Airline config ===
+" Airline config 
 let g:airline#extensions#whitespace#enabled = 0   " Hide trailing
 let g:airline_section_z = ''                       " Hide percentage/line info
 let g:airline_powerline_fonts = 1                  " Fancy separators
@@ -19,7 +19,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }  " Modern theme
 Plug 'ryanoasis/vim-devicons'      " File icons
 call plug#end()
 
-" === UI ===
+" UI
 set number                  " Line numbers
 set cursorline              " Highlight current line
 set showcmd                 " Show command in bottom bar
@@ -32,20 +32,20 @@ set termguicolors           " True colors
 colorscheme catppuccin_mocha
 set background=dark
 
-" === Search ===
+" Search
 set incsearch               " Search as you type
 set hlsearch                " Highlight matches
 set ignorecase              " Case insensitive search
 set smartcase               " Unless uppercase used
 
-" === Indentation ===
+" Indentation
 set tabstop=4               " Tab = 4 spaces
 set shiftwidth=4            " Indent = 4 spaces
 set expandtab               " Use spaces instead of tabs
 set autoindent              " Auto indent new lines
 set smartindent
 
-" === Navigation ===
+" Navigation 
 set mouse=a                 " Enable mouse
 vnoremap <BS> d             " Delete selection with backspace
 nnoremap <C-d> <C-d>zz      " Center after half-page down
@@ -53,7 +53,7 @@ nnoremap <C-u> <C-u>zz      " Center after half-page up
 nnoremap n nzzzv            " Center after search next
 nnoremap N Nzzzv            " Center after search prev
 
-" === Splits ===
+" Splits
 set splitbelow              " Open splits below
 set splitright              " Open splits to the right
 nnoremap <C-h> <C-w>h       " Move left
@@ -61,8 +61,12 @@ nnoremap <C-j> <C-w>j       " Move down
 nnoremap <C-k> <C-w>k       " Move up
 nnoremap <C-l> <C-w>l       " Move right
 
-" === NERDTree ===
+" NERDTree 
 nnoremap <C-b> :NERDTreeToggle<CR>
 
-" === CoC ===
+" CoC 
 inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
+
+" Option + Left/Right arrow for word Navigation
+inoremap <Esc>b <C-o>b
+inoremap <Esc>f <C-o>w
