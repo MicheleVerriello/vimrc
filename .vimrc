@@ -1,18 +1,23 @@
 " Plugins
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'          " File explorer
-Plug 'vim-airline/vim-airline'     " Status bar
-Plug 'vim-airline/vim-airline-themes'
-
-" Airline config 
 call plug#end()
+
+" Status Line
+set laststatus=2
+set statusline=%f\ %m%r%h%w%=%y\ [%l:%c]\ %p%%
+hi StatusLine ctermbg=NONE guifg=#eeeeee guibg=NONE
+hi StatusLineNC ctermbg=NONE guifg=#777777 guibg=NONE
+
+" Cursor style
+set guicursor=n:block,i:ver25
+let &t_SI = "\e[6 q" " Insert mode = bar
+let &t_EI = "\e[2 q" " Normal mode = block
 
 " UI
 set number                  " Line numbers
 set showcmd                 " Show command in bottom bar
 set showmatch               " Highlight matching brackets
-set wildmenu                " Visual autocomplete for command menu
 
 " Search
 set incsearch               " Search as you type
